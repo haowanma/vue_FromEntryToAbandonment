@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../vue.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    {{ msg }}
+  </div>
+
+  <script type="text/javascript" >
+    var vm =new Vue({
+      el: '#app',
+      data: {
+        msg: "Vue",
+      },
+
+      // 在实例初始化之后，数据观测 (data observer) 和 event/watcher 事件配置之前被调用。
+      beforeCreate:function(){
+        console.log('beforeCreate');
+      },
+      // 在实例创建完成后被立即调用
+      created:function(){
+        console.log('created');
+      },
+      // 在挂载开始之前被调用
+      beforeMount:function(){
+        console.log('beforeMount');
+      },
+      // 实例被挂载后调用
+      mounted:function(){
+        console.log('mounted');
+      },
+      // 数据更新时调用
+      beforeUpdate:function(){
+        console.log('beforeUpdate');
+      },
+      // 由于数据更改导致的虚拟 DOM 重新渲染和打补丁，在这之后会调用该钩子
+      updated:function(){
+        console.log('updated');
+      },
+      // 被 keep-alive 缓存的组件激活时调用
+      activated:function(){
+        console.log('activated');
+      },
+      // 被 keep-alive 缓存的组件停用时调用
+      deactivated:function(){
+        console.log('deactivated');
+      },
+      // 实例销毁之前调用
+      beforeDestroy:function(){
+        console.log('beforeDestroy');
+      },
+      // 实例销毁后调用
+      destroyed:function(){
+        console.log('destroyed');
+      },
+      // 当捕获一个来自子孙组件的错误时被调用
+      errorCaptured:function(){
+        console.log('errorCaptured');
+      },
+    });
+    setTimeout(function(){
+      vm.msg = "msg改变";
+    },3000);
+  </script>
+</body>
+</html>
