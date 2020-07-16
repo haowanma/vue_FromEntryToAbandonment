@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../vue.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <p v-once>{{ msg }}</p>
+    <p v-html = rawHtml></p>
+    <div v-bind:class = "color">vue</div>
+    <button v-bind:disabled="isButtonDisabled">button</button>
+    <p>{{ number + 1 }}</p>
+    <p>{{ ok?'yes':'no' }}</p>
+    <p>{{ msg.split('').reverse().join('') }}</p>
+  </div>
+
+  <script type="text/javascript" >
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: "vue",
+        rawHtml: '<span style = "color:red">This should be red.</span>',
+        color: 'red',
+        isButtonDisabled: true,
+        number: 10,
+        ok: 1,
+      },
+    });
+    vm.msg = "react";
+  </script>
+  <style>
+    .red {
+      color:red;
+    }
+  </style>
+</body>
+</html>
